@@ -9,14 +9,13 @@
     src: format('opentype') url('fontes/Azonix.otf');
 }
 html {
-    height: calc(100% - 76px);
-    max-height: inherit;
     margin: 0;
     padding: 0;
 }
 
 body {
     height: 100%;
+    background-color: #f3f3f4;
 }
 nav div {
     width: fit-content;
@@ -100,7 +99,6 @@ h5 {
 
 
 main {
-    background-color: #f3f3f4;
     padding: 10px;
     flex: 1 1;
 }
