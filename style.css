@@ -18,59 +18,86 @@ html {
 body {
     height: 100%;
 }
+nav div {
+    width: fit-content;
+}
 
-.navbar {
+nav {
     background-color: white !important;
     color: #000096 !important;
-}
-.navbar-brand {
-    font-family: 'azonix' !important;
-    color: #000096 !important;
-    font-size: 25px;
-}
-.nav-link {
-    color: #000096 !important;
-    font-size: 17px !important;
-}
-
-.flex {
+    height: 60px;
     display: flex;
-    height: 100%;   
-}
-.nav {
-    background-color: #0f0f0f;
-    grid-column: 1;
-    color: #555555;
-    width: 50px;
-    flex: 0 1;
-    flex-basis: 50px;
+    justify-content: space-between;
 }
 
-
-.nav ul {
-    margin: 0;
-    width: 100%;
-    height: calc(100% - 45px);
-    list-style-type: none;
-    padding: 0;
+nav button {
+    color: #000096;
+    font-size: 17px;
 }
-.nav li, .nav button {
-    width: 100%;
-    height: 45px;
+
+nav button#canvas {
     border: none;
+    margin-right: 10px;
+    padding: 15px;
     background: none;
-    color: #8c8c8c;
-}
-.nav button:hover {
-    background-color: #323232;
-    color: white;
+    color: #000096;
+    font-size: 20px;
+    width: 60px;
+    height: 60px;
 }
 
-i.fa-long-arrow-alt-right {
-    float: right;
-    font-size: 18px;
-    margin-right: 12px;
+.offcanvas {
+    width: 300px !important;
 }
+img#logo {
+    margin-bottom: 5px;
+}
+.offcanvas-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+h5 {
+    font-family: 'azonix';
+    font-size: 25px !important;
+    color: #000096 !important;
+    display: inline-block;
+}
+.btn {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #000096 !important;
+    font-size: 30px;
+    height: 60px;
+    width: 60px;
+}
+
+.dropdown-menu {
+    height: fit-content;
+    width: 100px !important;
+}
+.dropdown-item {
+    color: #000096;
+    background-color: white;
+    font-size: 15px ;
+    transition: 0.2s linear;
+}
+.dropdown-item:hover {
+    background-color: #c8c8c8;
+    color: #000096;
+}
+.offcanvas ul {
+    list-style-type: none;
+}
+.offcanvas li {
+    height: 40px;
+}
+.offcanvas a {
+    text-decoration: none;
+    color: #000096;
+    font-size: 20px;
+}
+
+
 
 main {
     background-color: #f3f3f4;
@@ -138,21 +165,6 @@ input:focus {
     font-size: 25px;
 }
 
-.dropdown-menu {
-    height: fit-content;
-    width: 100px !important;
-}
-.dropdown-item {
-    color: #000096;
-    background-color: white;
-    font-size: 15px ;
-    transition: 0.2s linear;
-}
-.dropdown-item:hover {
-    background-color: #c8c8c8;
-    color: #000096;
-}
-
 table {
     width: 100%;
     background-color: white;
@@ -180,8 +192,12 @@ tbody tr:nth-child(even) {
     background-color: #c8c8c8;
 }
 
-.col-id, .col-custo, .col-valor {
+.col-id {
     width: 100px;
+}
+
+.col-custo, .col-valor {
+    width: 80px;
 }
 
 .col-categoria {

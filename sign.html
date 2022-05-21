@@ -17,13 +17,13 @@
         Gerencie seu negocio de forma pratica e eficiente
     </p>
     
-    <form>
+    <form onsubmit="cadastrar()" method="post">
 
         Insira seus dados aqui <br>
-        <input type="text" placeholder="Usuario">
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Senha">
-        <input type="password" placeholder="Confirmar senha">
+        <input type="text" placeholder="Usuario" id="usuario">
+        <input type="email" placeholder="Email" id="email">
+        <input type="password" placeholder="Senha" id="senha">
+        <input type="password" placeholder="Confirmar senha" id="confirmar_senha">
 
         <input type="submit" value="Cadastre-se">
         <button>
@@ -35,5 +35,27 @@
         
         <p id="link">Já tem uma conta? <a href="login.html">Faça login</a></p>
     </form>
+
+    <script src="request.js"></script>
+    <script>
+        function cadastrar() {
+            var usuario = document.getElementById('usuario').value
+            var email = document.getElementById('email').value
+            var senha = document.getElementById('senha').value
+            var confirmar_senha = document.getElementById('confirmar_senha').value
+            
+            if (senha != confirmar_senha) {
+                console.log('senhas diferentes')
+            } 
+            else {
+                body = {
+                        usuario: usuario,
+                        email: email,
+                        senha: senha
+                        }
+                api_post('http://127.0.0.1:5000/new_user', JSON.stringify(body))
+            }
+        }
+    </script>
 </body>
 </html>
