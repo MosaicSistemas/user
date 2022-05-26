@@ -18,13 +18,10 @@
 
   <nav>
     <div>
-
       <button data-bs-toggle="offcanvas" data-bs-target="#offcanvas" id="canvas">
         <i class="fas fa-bars"></i>
       </button>
-      <h5>
-        Mosaic
-      </h5>
+      <img src="img/logo.png" alt="logo mosaic">
     </div>
     <div>
 
@@ -32,7 +29,7 @@
         <button class="btn btn-secondary" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fas fa-user-circle"></i>
         </button>
-        <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuButton1">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
           <li>
             <a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> Gerenciar conta </a></li>
           <li>
@@ -50,78 +47,81 @@
  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasLabel">
-      <img src="img/logo.png" alt="logo mosaic" id="logo">
-      Mosaic
+      <img src="img/logo.png" alt="logo mosaic">
     </h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <ul>
-      <li><a href=""><i class="fas fa-box-open"></i> Estoque </a>
-      <li><a href=""><i class="fas fa-users"></i> Funcionarios </a></li>
-      <li><a href=""><i class="fas fa-file-invoice-dollar"></i> Vendas </a></li>
+      <li>
+        <a href="">
+        <button><i class="fas fa-box-open"></i> Estoque </button>
+        </a></li>
+      <li><a href=""><button>
+          <i class="fas fa-users"></i> Funcionarios 
+        </button>
+      </a></li>
+      <li><a href="">
+        <button>
+          <i class="fas fa-file-invoice-dollar"></i> Vendas
+        </button>
+      </a></li>
+      <li><a href="">
+        <button>
+          <i class="fas fa-question"></i> Ajuda
+        </button>
+      </a></li>
     </ul>
   </div>
 </div>
 
   
-    <main>
-        <table>
-          <thead>
-            <tr>
-              <th class="col-id">Codigo</th>
-              <th class="col-nome">Descrição</th>
-              <th class="col-categoria">Categoria</th>
-              <th class="col-custo">Custo</th>
-              <th class="col-valor">Valor</th>
-            </tr>
-          </thead>
+  <main>
+    <div class="search">
+      <i class="fas fa-search"></i>
+      <input type="search" placeholder="Pesquisar" maxlength="30">
+    </div>
 
-          <tbody>
-            <tr>
-            <td > 
-              <input type="number" name="id-1" id="id-1" value="1234"> 
-            </td>
-            <td> 
-              <input type="text" name="nome-2" id="nome-2"value="guaravita">
-            </td>
-            <td> 
-              <select id="">
-              <option value="bebida"> bebida </option>
-              <option value="salgado"> salgado </option>
-              </select> 
-            </td>
-            <td>
-              <input type="number" value="0.80">
-            </td>
-            <td>
-              <input type="number" value="2.00">
-            </td>
-          </tr>
+      <table>
+        <thead>
           <tr>
-            <td> 
-              <input type="number" name="id-2" id="id-2" value="1234"> 
+            <th class="col-id">Codigo</th>
+            <th class="col-nome">Descrição</th>
+            <th class="col-custo">Valor</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr contextmenu="row-menu">
+            <td class="col-id">
+              1234
             </td>
             <td>
-               <input type="text" name="nome-2" id="nome-2" value="coxinha"> 
+              guaravita
             </td>
             <td>
-              <select name="" id="">
-                <option value="salgado"> salgado </option>
-                <option value="bebida"> bebida </option>
-                </select> 
-            </td>
-            <td>
-              <input type="number" name="" id="" value="0.50">
-            </td>
-            <td>
-              <input type="number" name="" id="" value="1.50">
+              2.00
             </td>
           </tr>
-          </tbody>
-        </table>
-    </main>
+          <tr ondblclick="console.log('linha 2')">
+            <td>
+              4321
+            </td>
+            <td>
+              kibe
+            </td>
+            <td>
+              1.50
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+  </main>
   
+    <button class="fixed-btn" data-bs-toggle="modal" data-bs-target="#modal-add">
+      <i class="fas fa-plus"></i>
+    </button>
 
     <div class="modal fade" id="modal-add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -135,25 +135,32 @@
           <form action="" > 
           <div class="modal-body" id="form">
            
-            <label for="#id" class="id">Codigo</label>
+            <label for="id" class="id">Codigo</label>
             <input type="text" class="id" name="id" id="id" 
             required oninvalid="erro('id')">
             <span class="id erro">Campo obrigatorio</span> <br>
 
-            <label for="#nome" class="nome">Descrição/Nome</label>
+            <label for="nome" class="nome">Descrição/Nome</label>
             <input type="text" class="nome" name="nome" id="nome" 
             required oninvalid="erro('nome')">
             <span class="nome erro">Campo obrigatorio</span> <br>
 
-            <label for="#custo" class="custo">Custo</label>
+            <label for="custo" class="custo">Custo</label>
             <input type="number" class="custo" name="custo" id="custo" 
             required oninvalid="erro('custo')">
             <span class="custo erro">Campo obrigatorio</span> <br>
 
-            <label for="#valor" class="valor">Valor</label>
+            <label for="valor" class="valor">Valor</label>
             <input type="number" class="valor" name="valor" id="valor" 
             required oninvalid="erro('valor')">
             <span class="valor erro">Campo obrigatorio</span> <br>
+
+            <label for="unidade">Unidade:</label>
+            <select name="unidade" id="unidade">
+              <option value="unid" title="Unidade">unid</option>
+              <option value="Kg" title="Kilo">Kg</option>
+              <option value="L" title="Litro">L</option>
+            </select>
 
           </div>
           <div class="modal-footer">
