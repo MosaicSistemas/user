@@ -1,0 +1,11 @@
+{
+  "particles": {
+    "number": {
+      "value": 50
+    },
+
+    "color": {
+      "value": "#000096"
+    }
+  }
+}

@@ -15,7 +15,7 @@
 
 <main>
     <form onsubmit="login()" method="get">
-    <img src="img/logo.svg" alt="mosaic sistemas e soluções"> <br>
+    <img src="img/logo-v.svg" alt="mosaic sistemas e soluções"> <br>
 
     <p>
         Insira seus dados aqui
@@ -30,21 +30,11 @@
 
 </main>
 
-<section>
-  
-</section>
+<div id="particles-js">
+</div>
 
-<script src="request.js"></script>
-<script>
-    function login() {
-        let usuario = document.getElementById('usuario').value
-        let senha = document.getElementById('senha').value
-
-        url = 'http://127.0.0.1:5000/login/' + usuario + '/' + senha
-        let response = request('GET', url)
-        window.alert(response)
-    }
-</script>
+<script src="particles.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>

@@ -87,14 +87,21 @@
           <tr>
             <th class="col-id">Codigo</th>
             <th class="col-nome">Descrição</th>
-            <th class="col-custo">Valor</th>
+            <th class="col-valor">Valor</th>
+            <th class="button">
+              <button
+              data-bs-target="#modal-add" 
+              data-bs-toggle="modal">
+                <i class="fas fa-plus"></i>
+              </button>
+            </th>
           </tr>
         </thead>
 
         <tbody>
-          <tr contextmenu="row-menu">
-            <td class="col-id">
-              1234
+          <tr>
+            <td>
+              10
             </td>
             <td>
               guaravita
@@ -102,10 +109,19 @@
             <td>
               2.00
             </td>
+            <td class="button">
+              <button 
+              data-bs-target="#modal-edit" 
+              data-bs-toggle="modal" 
+              data-bs-whatever="10">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
           </tr>
-          <tr ondblclick="console.log('linha 2')">
+
+          <tr>
             <td>
-              4321
+              11
             </td>
             <td>
               kibe
@@ -113,15 +129,21 @@
             <td>
               1.50
             </td>
+            <td class="button">
+              <button
+              data-bs-target="#modal-edit" 
+              data-bs-toggle="modal" 
+              data-bs-whatever="11">
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
 
       </table>
   </main>
   
-    <button class="fixed-btn" data-bs-toggle="modal" data-bs-target="#modal-add">
-      <i class="fas fa-plus"></i>
-    </button>
+  
 
     <div class="modal fade" id="modal-add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -138,28 +160,36 @@
             <label for="id" class="id">Codigo</label>
             <input type="text" class="id" name="id" id="id" 
             required oninvalid="erro('id')">
-            <span class="id erro">Campo obrigatorio</span> <br>
+        
 
-            <label for="nome" class="nome">Descrição/Nome</label>
+            <label for="nome" class="nome">Descrição</label>
             <input type="text" class="nome" name="nome" id="nome" 
             required oninvalid="erro('nome')">
-            <span class="nome erro">Campo obrigatorio</span> <br>
+         
+
+            <label for="categoria" class="categoria">Categoria</label>
+            <select name="categoria" id="categoria">
+              <option value=""></option>
+              <option value="bebida">bebida</option>
+              <option value="salgado">salgado</option>
+            </select>
+        
 
             <label for="custo" class="custo">Custo</label>
             <input type="number" class="custo" name="custo" id="custo" 
             required oninvalid="erro('custo')">
-            <span class="custo erro">Campo obrigatorio</span> <br>
+         
 
             <label for="valor" class="valor">Valor</label>
             <input type="number" class="valor" name="valor" id="valor" 
             required oninvalid="erro('valor')">
-            <span class="valor erro">Campo obrigatorio</span> <br>
+        
 
-            <label for="unidade">Unidade:</label>
-            <select name="unidade" id="unidade">
-              <option value="unid" title="Unidade">unid</option>
-              <option value="Kg" title="Kilo">Kg</option>
-              <option value="L" title="Litro">L</option>
+            <label for="medida">Medida:</label>
+            <select name="medida" id="medida">
+              <option value="unid" title="Unidade">Unidade</option>
+              <option value="Kg" title="Kilo">Kilograma</option>
+              <option value="L" title="Litro">Litro</option>
             </select>
 
           </div>
@@ -172,27 +202,67 @@
       </div>
     </div>
 
+    <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar produto</h5>
+            
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <form action="" > 
+          <div class="modal-body" id="form">
+           
+            <label for="id" class="id">Codigo</label>
+            <input type="text" class="id" name="id" id="id" 
+            required oninvalid="erro('id')">
+        
+
+            <label for="nome" class="nome">Descrição</label>
+            <input type="text" class="nome" name="nome" id="nome" 
+            required oninvalid="erro('nome')">
+         
+
+            <label for="categoria" class="categoria">Categoria</label>
+            <select name="categoria" id="categoria">
+              <option value="bebida">bebida</option>
+              <option value="salgado">salgado</option>
+            </select>
+        
+
+            <label for="custo" class="custo">Custo</label>
+            <input type="number" class="custo" name="custo" id="custo" 
+            required oninvalid="erro('custo')">
+         
+
+            <label for="valor" class="valor">Valor</label>
+            <input type="number" class="valor" name="valor" id="valor" 
+            required oninvalid="erro('valor')">
+        
+
+            <label for="medida">Medida:</label>
+            <select name="medida" id="medida">
+              <option value="unid" title="Unidade">Unidade</option>
+              <option value="Kg" title="Kilo">Kilograma</option>
+              <option value="L" title="Litro">Litro</option>
+            </select>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="close" data-bs-dismiss="modal">Cancelar</button>
+            <input type="submit" class="confirm" value="Salvar">
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="request.js"></script>
     <script>
-      
-      function menu() {
-        var nav = document.getElementById('nav')
-        var arrow = document.getElementById('arrow')
-        var spans = document.getElementsByClassName('txt')
-        if (nav.style.flexBasis == '150px') {
-          nav.style.flexBasis = '50px';
-          arrow.style.transform = 'rotate(0deg)';
-          for (var c = 0; c < spans.length ; c++) {
-            spans[c].style.display = 'none'
-          }
-        }
-        else {
-          nav.style.flexBasis = '150px';
-          arrow.style.transform = 'rotate(180deg)';
-          for (var c = 0; c < spans.length; c++) {
-            spans[c].style.display = 'initial'
-          }
-        }
-                
+      function loadTable() {
+        data = request('GET', 'http://127.0.0.1:5000/produtos', {'id': '10', 'campo': '*'})
+        console.log(data)
       }
       
       function erro(fonte, erro='Campo obrigatorio') {
@@ -215,6 +285,21 @@
           elements[2].style.display = 'none'
         }
       }
+
+      var modal = document.getElementById('modal-edit')
+      modal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var recipient = button.getAttribute('data-bs-whatever')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalBodyInput = modal.querySelector('.modal-body input')
+
+        modalBodyInput.value = recipient
+})
 
     </script>
 

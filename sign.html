@@ -26,6 +26,7 @@
         <input type="password" placeholder="Confirmar senha" id="confirmar_senha">
 
         <input type="submit" value="Cadastre-se">
+
         <button>
             <i class="fab fa-google"></i> Entre com Google
         </button> <br>
@@ -37,6 +38,7 @@
     </form>
 
     <script src="request.js"></script>
+
     <script>
         function cadastrar() {
             var usuario = document.getElementById('usuario').value
@@ -49,11 +51,11 @@
             } 
             else {
                 body = {
-                        usuario: usuario,
-                        email: email,
-                        senha: senha
+                        "usuario": usuario,
+                        "email": email,
+                        "senha": senha
                         }
-                api_post('http://127.0.0.1:5000/new_user', JSON.stringify(body))
+                fetch('http://127.0.0.1:5000/user').then(response => response.json).then(window.alert)
             }
         }
     </script>
